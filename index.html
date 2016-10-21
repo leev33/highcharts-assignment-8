@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>highcharts-assignment-8</title>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"> </script>
+
+        <script
+        src="https://code.highcharts.com/highcharts.js">
+        </script>
+
+        <script
+        src="https://code.highcharts.com/modules/exporting.js">
+        </script>
+
+        <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+<h1>Top Voting Issues in 2016 Election</h1>
+<h3>Chart by Lee Nielsen</h3>
+
+<div id="container" style="min-width: 300px; height: 400px; margin: 0 auto;"></div>
+
+<p>This chart shows registered voter's top concerns in the 2016 election. The bar graph shows the number of registered voters and where there concerns are from the 12 issues. The survey for the data was conducted in June 15-26, 2016. These are the issues that the surveyed said where "very important." The top issues are the economy, terrorism and health care. The data for this graph is from <a href="http://www.people-press.org/2016/07/07/4-top-voting-issues-in-2016-election/" target="_blank">PEW Research Center</a>.</p>
+
+<script>
+$(document).ready(function() {
+    $('#container').highcharts({
+      chart: {
+                type: 'column'
+            },
+            title: {
+                text: "Top Voting Issues in 2016 Election"
+
+            },
+      				subtitle: {
+      		text: 'Source: <a href="http://www.peoplepress.org/2016/07/07/4-top-voting-issues-in-2016-election/">PewResearchCenter</a>'
+            },
+            xAxis: {
+                type: 'category',
+                labels: {
+                    rotation: -45,
+                    style: {
+                        fontSize: '13px',
+                        fontFamily: 'Verdana, sans-serif'
+                    }
+                }
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: "Percentage of registered voters"
+                }
+            },
+            legend: {
+                enabled: false
+            },
+            tooltip: {
+                pointFormat: 'Percentage in 2016: <b>{point.y:.1f} percent</b>'
+            },
+            series: [{
+                name: "Percentage",
+                data: [
+                    ['Economy', 84],
+                    ['Terrorism', 80],
+                    ['Health Care', 74],
+                    ['Gun Policy', 72],
+                    ['Immigration', 70],
+                    ['Social Security', 67],
+                    ['Education', 66],
+                    ['Supreme Court Appts', 65],
+                    ['Racial, ethnic minorities', 63],
+                    ['Trade Policy', 57],
+                    ['Environment', 52],
+                    ['Abortion', 45],
+
+                ],
+                dataLabels: {
+                    enabled: true,
+                    rotation: -90,
+                    color: '#FFFFFF',
+                    align: 'right',
+                    format: '{point.y:.1f}', // one decimal
+                    y: 10, // 10 pixels down from the top
+                    style: {
+                        fontSize: '13px',
+                        fontFamily: 'Verdana, sans-serif'
+                    }
+                }
+            }]
+        });
+    });
+</script>
+
+
+<h1>Clinton and Trump supporters on 2016 Election</h1>
+<h3>Chart by Lee Nielsen</h3>
+
+<div id="holder" style="min-width: 300px; height: 400px; margin: 0 auto;"></div>
+
+<p>This chart is comparing the views of Clinton supporters and Trump supporters. The survey was taken by registered voters on June 15-26, 2016. The difference between percentages of concerns are not very large between the voters. The Clinto supporters are represented by the light blue line and the Trump supporters are represented by the black line. The top issues among both supporters is the economy, terrorism and immigration. The data for this graph is from <a href="http://www.people-press.org/2016/07/07/4-top-voting-issues-in-2016-election/" target="_blank">PEW Research Center</a>.</p>
+
+<script>
+$(document).ready(function() {
+    $('#holder').highcharts({
+    chart: {
+      type: 'line'
+    },
+    title: {
+      text: "Clinton and Trump supporters on 2016 Election Issues "
+    },
+    subtitle: {
+      text: 'Source: <a href="http://www.peoplepress.org/2016/07/07/4-top-voting-issues-in-2016-election/">PewResearchCenter</a>'
+    },
+    xAxis: {
+      categories: ['Economy', 'Terrorism', 'Immigration', 'Foreign Policy', 'Health Care', 'Supreme Court Appts', 'Gun Policy', 'Social Security', 'Trade Policy', 'Education', 'Racial, ethnic minorities', 'Abortion', 'Environment', 'Gay, lesbian, transgendered people']
+    },
+    yAxis: {
+      title: {
+        text: 'Percentage of registered voters'
+      }
+    },
+    plotOptions: {
+      line: {
+        dataLabels: {
+          enabled: true
+        },
+        enableMouseTracking: false
+      }
+    },
+    series: [{
+      name: 'Clinton',
+      data: [80, 74, 65, 73, 77, 62, 74, 66, 52, 73, 79, 50]
+    }, {
+      name: 'Trump',
+      data: [90, 89, 79, 79, 70, 71, 70, 68, 64, 58, 42, 41]
+    }]
+  });
+});
+</script>
+
+</body>
+</html>
